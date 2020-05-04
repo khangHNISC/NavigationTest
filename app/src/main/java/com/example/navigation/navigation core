@@ -1,0 +1,6 @@
+NavController line 935
+: NavDestination newDest = navigator.navigate(node, finalArgs,
+                  navOptions, navigatorExtras)
+
+-> FragmentNavigator
+-> ActivityNavigator
