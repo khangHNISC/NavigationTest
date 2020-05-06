@@ -2,6 +2,7 @@ package com.example.navigation.fragment
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,7 +41,8 @@ class FragmentA : Fragment(){
             requireActivity().replaceFragment(
                 R.id.frag_container,
                 FragmentB.newInstance(),
-                isAddToBackStack
+                isAddToBackStack,
+                fragName
             )
             //#1. this replace replace A with B
         }
@@ -49,7 +51,8 @@ class FragmentA : Fragment(){
             requireActivity().addFragment(
                 R.id.frag_container,
                 FragmentB.newInstance(),
-                isAddToBackStack
+                isAddToBackStack,
+                fragName
             )
             //#2. this replace put B on top of A
         }
@@ -81,6 +84,7 @@ class FragmentA : Fragment(){
         }
 
         const val isAddToBackStack = true
+        const val fragName = "FragA to FragB"
     }
 }
 

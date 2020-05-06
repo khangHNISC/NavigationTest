@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_mainFragment_to_dialogNotifyFragment"
             app:destination="@id/dialogNotifyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
     </fragment>
     <fragment
         android:id="@+id/dialogNotifyFragment"
@@ -32,4 +35,32 @@
         android:name="com.example.navigation.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.navigation.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/navigation" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.example.navigation.login.NewsFragment"
+        android:label="NewsFragment" />
+    <navigation
+        android:id="@+id/navigation"
+        app:startDestination="@id/enterProfileDataFragment" >
+        <fragment
+            android:id="@+id/enterProfileDataFragment"
+            android:name="com.example.navigation.login.EnterProfileDataFragment"
+            android:label="EnterProfileDataFragment">
+            <action
+                android:id="@+id/action_enterProfileDataFragment_to_chooseUserPassFragment"
+                app:destination="@id/chooseUserPassFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/chooseUserPassFragment"
+            android:name="com.example.navigation.login.ChooseUserPassFragment"
+            android:label="ChooseUserPassFragment" />
+    </navigation>
 </navigation>

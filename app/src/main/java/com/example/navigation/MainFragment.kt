@@ -25,13 +25,19 @@ class MainFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val navController = findNavController()
         openBtn.setOnClickListener {
-            findNavController().navigate(R.id.dialogNotifyFragment)
+            navController.navigate(R.id.dialogNotifyFragment)
         }
 
         openBtn2.setOnClickListener {
             val intent = Intent(context, TransActivity::class.java)
             startActivity(intent)
+        }
+
+        openNews.setOnClickListener {
+            navController.navigate(R.id.newsFragment)
         }
 
         vm.fakeData.observe(viewLifecycleOwner, Observer {

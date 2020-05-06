@@ -1,12 +1,12 @@
 package com.example.navigation.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.navigation.R
-import com.example.navigation.helper.detachFragment
 import com.example.navigation.helper.removeFragment
 import com.example.navigation.helper.replaceFragment
 import kotlinx.android.synthetic.main.fragment_sub.*
@@ -36,7 +36,8 @@ class FragmentB : Fragment() {
             requireActivity().replaceFragment(
                 R.id.frag_container,
                 FragmentC.newInstance(),
-                false
+                true,
+                fragName
             )
         }
     }
@@ -65,6 +66,8 @@ class FragmentB : Fragment() {
         fun newInstance(): FragmentB {
             return FragmentB()
         }
+
+        const val fragName = "FragB To FragC"
     }
 
     /**

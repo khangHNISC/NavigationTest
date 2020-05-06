@@ -4,33 +4,37 @@ import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 
-fun FragmentActivity.replaceFragment(@IdRes id: Int, fragment: Fragment, addToBackStack: Boolean) {
+fun FragmentActivity.replaceFragment(
+    @IdRes id: Int,
+    fragment: Fragment,
+    addToBackStack: Boolean,
+    fragName: String
+) {
     supportFragmentManager.beginTransaction().replace(id, fragment).apply {
-        if(addToBackStack) addToBackStack(null)
+        if (addToBackStack) addToBackStack(fragName)
     }.commit()
 }
 
-fun Fragment.replaceFragment(@IdRes id: Int, fragment: Fragment, addToBackStack: Boolean) {
-    childFragmentManager.beginTransaction().replace(id, fragment).apply {
-        if(addToBackStack) addToBackStack(null)
-    }.commit()
-}
-
-fun FragmentActivity.addFragment(@IdRes id: Int, fragment: Fragment, addToBackStack: Boolean) {
+fun FragmentActivity.addFragment(
+    @IdRes id: Int,
+    fragment: Fragment,
+    addToBackStack: Boolean,
+    fragName: String
+) {
     supportFragmentManager.beginTransaction().add(id, fragment).apply {
-        if(addToBackStack) addToBackStack(null)
+        if (addToBackStack) addToBackStack(fragName)
     }.commit()
 }
 
-fun FragmentActivity.removeFragment(fragment: Fragment){
+fun FragmentActivity.removeFragment(fragment: Fragment) {
     supportFragmentManager.beginTransaction().remove(fragment).commit()
 }
 
-fun FragmentActivity.detachFragment(fragment: Fragment){
+fun FragmentActivity.detachFragment(fragment: Fragment) {
     supportFragmentManager.beginTransaction().detach(fragment).commit()
 }
 
-fun FragmentActivity.attachFragment(fragment: Fragment){
+fun FragmentActivity.attachFragment(fragment: Fragment) {
     supportFragmentManager.beginTransaction().attach(fragment).commit()
 }
 
